@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Page</title>
+</head>
+<body>
+    <h3><%= cat.name.toUpperCase() %></h3>
+    <h4>Products</h4>
+    <ul>
+        <% for(product of cat.products) { %> 
+           <li><a href="/products/<%= product._id %>"><%= product.name %></a></li>
+        <% } %> 
+    </ul>
+    <a href="/categories">All Categories</a>
+    <a href="/categories/<%= cat._id %>/products/new">Add New Product</a>
+    <a href="/categories/<%=cat._id%>/edit">Edit Category</a>
+    
+    <form action="/categories/<%=cat._id%>?_method=DELETE" method="POST">
+    <button>Delete</button>
+    </form>
+
+</body>
+</html>

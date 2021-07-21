@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Page</title>
+</head>
+<body>
+    <h3><%= product.name.toUpperCase() %></h3>
+    <ul>
+        <li>Quantity: <b><%= product.qty %></b> </li>
+        <li>Price Per Unit: <b>&#8377;<%= product.price %></b> </li>
+        <li>Left Quantity: <b><%= product.leftQty %></b> </li>
+        <li>Category: <a href="/products?category=<%= product.category%>"><b><%= product.category%></b></a></li>
+    </ul>
+    <a href="/categories">All Categories</a>
+    <a href="/products/<%=product._id%>/edit">Edit Product</a>
+    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+    <button>Delete</button>
+    </form>
+
+</body>
+</html>

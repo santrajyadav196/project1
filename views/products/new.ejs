@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Product</title>
+</head>
+<body>
+    <h3><%= cat.name %> </h3>
+    <h5>Add A Product</h5>
+    <form action="/categories/<%= cat._id %>/products" method="POST">
+        <label for="name">Product Name</label>
+        <input type="text" name="name" id="name" placeholder="product name">
+        <label for="qty">Quantity</label>
+        <input type="number" id="qty" name="qty" placeholder="quantity">
+         <label for="price">Price (Unit)</label>
+        <input type="number" id="price" name="price" placeholder="price">
+        <label for="leftQty">Left Quantity</label>
+        <input type="number" id="leftQty" name="leftQty" placeholder="left quantity">
+        <label for="category">Select Category</label>
+        <select name="category" id="category">
+            <% for(let category of categories) { %>
+                <option value="<%= category %>"><%= category %> </option>
+                <% } %>
+        </select>
+        <button>Submit</button>
+    </form>
+    <a href="/categories/<%= cat._id %> ">Back To Category</a>
+</body>
+</html>
